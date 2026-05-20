@@ -1,15 +1,15 @@
 # bank_product_prediction
 
-#项目背景
+#项目背景<br>
 对于各大银行公司、金融公司而言，判断一个客户会不会购买产品是至关重要的，这关乎到公司的收益，在本项目中，我从这一现实痛点出发，综合评估客户的各个特征：年龄、职业、婚姻、之前是否有过购买记录等，以及当前市场的情况：银行利率、消费者信心指数等，找到了一种方法：在尽可能保证满足条件的人数足够多的前提下，提高预测准确率。<br>
 
-#数据集说明
+#数据集说明<br>
 本项目使用的数据集共有22500行以及22个字段，包括：age（年龄）,education（学历）,housing（是否有房贷）,poutcome（之前营销活动的结果：unknow,other,failure,success）,cons_conf_index（消费者信心指数）,lending_rate3m（银行利率）等字段，目标变量为subscribe（是否购买）。<br> 
 
-#分析流程
+#分析流程<br>
 在拿到数据之后，我先大概看了数据的行数以及各字段的含义，然后进行数据清洗、EDA、特征工程、建模与评估、结论与建议。<br>
 
-#核心洞察与结论
+#核心洞察与结论<br>
 经过以上一系列步骤，我得到了以下的关键规律：<br>
 1.年龄<30且曾有购买记录的客户购买率高，达到了24.9%，但同时满足这两个条件的人数很少，仅占整个数据集的3%左右。<br>
 <img width="1473" height="912" alt="屏幕截图 2026-05-20 173041" src="https://github.com/user-attachments/assets/8c588a97-c3e5-4f77-b13d-c902cff00a9f" />
@@ -20,15 +20,15 @@
 我怀疑：是不是有其他因素在其中影响，甚至是强影响因素。<br>
 3.利率是强影响因素：低利率时期购买率显著更高。<br>
 <img width="1075" height="602" alt="屏幕截图 2026-05-20 173822" src="https://github.com/user-attachments/assets/d9e68be4-1df6-48a8-a6f6-4283eb841bf3" />
-<img width="392" height="165" alt="屏幕截图 2026-05-20 174411" src="https://github.com/user-attachments/assets/2997217d-94fa-4c48-ba34-9943a631776a" />
+<img width="392" height="165" alt="屏幕截图 2026-05-20 174411" src="https://github.com/user-attachments/assets/2997217d-94fa-4c48-ba34-9943a631776a" /><br>
 4.加入利率后的逻辑回归模型，相比原始规则（选取满足年龄<30且曾有过购买记录的客户），在相同营销预算下，真实购买人数提升了30%以上。<br>
-<img width="711" height="144" alt="屏幕截图 2026-05-20 174753" src="https://github.com/user-attachments/assets/cfa1a906-d1b9-41e6-b4fc-8f003be2e47f" />
+<img width="711" height="144" alt="屏幕截图 2026-05-20 174753" src="https://github.com/user-attachments/assets/cfa1a906-d1b9-41e6-b4fc-8f003be2e47f" /><br>
 5.在以后的推销过程中，我们就可以采取这样的方法：先计算出客户的订购概率（prob），选择订购概率较高的人进行推销，尽可能降低我们的推销成本，并获得尽可能多的收益。<br>
 
-#复现步骤
+#复现步骤<br>
 环境要求：Python3.1.2。<br>
 所需库：numpy，pandas，matplotlib，seaborn，LogisticRegression。<br>
 运行方式：jupyter notrbook打开.ipynb即可。<br>
 
-#许可证
+#许可证<br>
 本项目采用MIT许可证
